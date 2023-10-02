@@ -2,6 +2,8 @@ import React, { useMemo } from 'react'
 import { ResponsiveLine } from '@nivo/line'
 import { Box, Typography, CircularProgress, useTheme } from '@mui/material'
 import { useGetSalesQuery } from 'state/api'
+import { FormattedMessage } from 'react-intl'
+import LoadingBox from './LoadingBox'
 
 const OverviewChart = ({ isDashboard = false, view }) => {
   const theme = useTheme()
@@ -12,12 +14,12 @@ const OverviewChart = ({ isDashboard = false, view }) => {
 
     const { monthlyData } = data
     const totalSalesLine = {
-      id: 'totalSales',
+      id: <FormattedMessage id={'overView.chart.totalSales'} />,
       color: theme.palette.overviewScene.chart.line1,
       data: [],
     }
     const totalUnitsLine = {
-      id: 'totalUnits',
+      id: <FormattedMessage id={'overView.chart.totalUnits'} />,
       color: theme.palette.overviewScene.chart.line2,
       data: [],
     }
@@ -43,6 +45,13 @@ const OverviewChart = ({ isDashboard = false, view }) => {
 
     return [[totalSalesLine], [totalUnitsLine]]
   }, [data])
+
+  const leftChartText =
+    view === 'sales' ? (
+      <FormattedMessage id={'overView.chart.totalRevenueYearly'} />
+    ) : (
+      <FormattedMessage id={'overView.chart.totalUnitsYearly'} />
+    )
 
   return (
     <Box height={'90%'}>
@@ -100,7 +109,11 @@ const OverviewChart = ({ isDashboard = false, view }) => {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: isDashboard ? '' : 'Month',
+            legend: isDashboard ? (
+              ''
+            ) : (
+              <FormattedMessage id={'overView.chart.month'} />
+            ),
             legendOffset: 36,
             legendPosition: 'middle',
           }}
@@ -110,9 +123,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: isDashboard
-              ? ''
-              : `Total ${view === 'sales' ? 'Revenue' : 'Units'} for Year`,
+            legend: isDashboard ? '' : leftChartText,
             legendOffset: -60,
             legendPosition: 'middle',
           }}
@@ -147,19 +158,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
           }
         />
       ) : (
-        <Box
-          sx={{
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '70vh',
-          }}
-        >
-          <CircularProgress color={'primary'} />
-          <Typography sx={{ paddingTop: '24px' }}>Loading</Typography>
-        </Box>
+        <LoadingBox />
       )}
     </Box>
   )

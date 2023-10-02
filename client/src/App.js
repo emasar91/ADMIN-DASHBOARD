@@ -16,6 +16,7 @@ import Breakdown from 'scenes/breakdown'
 import Admin from 'scenes/admin'
 import Performance from 'scenes/performance'
 import './App.css'
+import ErrorPage from './scenes/error'
 
 const App = () => {
   const mode = useSelector((state) => state.global.mode)
@@ -38,6 +39,7 @@ const App = () => {
               <Route path='/breakdown' element={<Breakdown />} />
               <Route path='/admin' element={<Admin />} />
               <Route path='/performance' element={<Performance />} />
+              <Route element={<ErrorPage />} path='*' />
             </Route>
           </Routes>
         </ThemeProvider>

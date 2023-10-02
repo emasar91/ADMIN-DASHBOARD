@@ -20,6 +20,7 @@ import StatBox from 'components/StatBox'
 import OverviewChart from 'components/OverviewChart'
 import PerformanceTable from 'components/PerformanceTable'
 import BreakDownChart from 'components/BreakDownChart'
+import { FormattedMessage } from 'react-intl'
 
 const Dashboard = () => {
   const theme = useTheme()
@@ -33,7 +34,7 @@ const Dashboard = () => {
 
   return (
     <Box sx={containerStyleScene}>
-      <Header title={'Dashboard'} />
+      <Header title={'dashboard'} />
       <Box
         sx={{
           ...containerStyle,
@@ -47,10 +48,12 @@ const Dashboard = () => {
         }}
       >
         <StatBox
-          title='Total Customers'
+          title=<FormattedMessage id={'dashboard.statBox.totalCostumers'} />
           value={data && data.totalCustomers}
           increase='+14'
-          description='Since last month'
+          description=<FormattedMessage
+            id={'dashboard.statBox.sinceLastMonth'}
+          />
           icon={
             <EmailOutlined
               sx={{ color: theme.palette.secondary[300], fontSize: '26px' }}
@@ -58,10 +61,12 @@ const Dashboard = () => {
           }
         />
         <StatBox
-          title='Sales Today'
+          title=<FormattedMessage id={'dashboard.statBox.salesToday'} />
           value={data && data.todayStats.totalSales}
           increase='+21'
-          description='Since last month'
+          description=<FormattedMessage
+            id={'dashboard.statBox.sinceLastMonth'}
+          />
           icon={
             <PointOfSaleOutlined
               sx={{ color: theme.palette.secondary[300], fontSize: '26px' }}
@@ -79,10 +84,12 @@ const Dashboard = () => {
           <OverviewChart view='sales' isDashboard={true} />
         </Box>
         <StatBox
-          title='Monthly Sales'
+          title=<FormattedMessage id={'dashboard.statBox.monthlySales'} />
           value={data && data.thisMonthStats.totalSales}
           increase='+5'
-          description='Since last month'
+          description=<FormattedMessage
+            id={'dashboard.statBox.sinceLastMonth'}
+          />
           icon={
             <PersonAddOutlined
               sx={{ color: theme.palette.secondary[300], fontSize: '26px' }}
@@ -90,10 +97,12 @@ const Dashboard = () => {
           }
         />
         <StatBox
-          title='Yearly Sales'
+          title=<FormattedMessage id={'dashboard.statBox.yearlySales'} />
           value={data && data.yearlySalesTotal}
           increase='+43'
-          description='Since last month'
+          description=<FormattedMessage
+            id={'dashboard.statBox.sinceLastMonth'}
+          />
           icon={
             <TrafficOutlined
               sx={{ color: theme.palette.secondary[300], fontSize: '26px' }}

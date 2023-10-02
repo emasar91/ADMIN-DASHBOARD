@@ -2,40 +2,40 @@ export const rowTitles = (isDashboard) => {
   return isDashboard
     ? [
         {
-          headerName: 'ID',
+          headerName: 'id',
         },
 
         {
-          headerName: 'Name',
+          headerName: 'name',
         },
         {
-          headerName: 'Created At',
+          headerName: 'createdAt',
         },
         {
-          headerName: 'Products',
+          headerName: 'products',
         },
         {
-          headerName: 'Cost',
+          headerName: 'cost',
         },
       ]
     : [
         {
-          headerName: 'ID',
+          headerName: 'id',
         },
         {
           headerName: 'userId',
         },
         {
-          headerName: 'Name',
+          headerName: 'name',
         },
         {
-          headerName: 'Created At',
+          headerName: 'createdAt',
         },
         {
-          headerName: 'Products',
+          headerName: 'products',
         },
         {
-          headerName: 'Cost',
+          headerName: 'cost',
         },
       ]
 }

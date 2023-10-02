@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker'
 import DailyChart from '../../components/DailyChart'
 
 import 'react-datepicker/dist/react-datepicker.css'
+import { FormattedMessage } from 'react-intl'
 
 const Daily = () => {
   const theme = useTheme()
@@ -19,12 +20,12 @@ const Daily = () => {
 
     const { dailyData } = data
     const totalSalesLine = {
-      id: 'Total Sales',
+      id: <FormattedMessage id={'daily.totalSales'} />,
       color: theme.palette.dailyScene.chart.line1,
       data: [],
     }
     const totalUnitsLine = {
-      id: 'Total Units',
+      id: <FormattedMessage id={'daily.totalUnits'} />,
       color: theme.palette.dailyScene.chart.line2,
       data: [],
     }
@@ -51,7 +52,7 @@ const Daily = () => {
 
   return (
     <Box sx={containerStyleScene}>
-      <Header title={'Daily'} />
+      <Header title={'daily'} />
       <Box
         sx={{
           ...containerStyle,

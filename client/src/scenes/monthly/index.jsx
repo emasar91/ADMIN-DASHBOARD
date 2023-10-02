@@ -4,6 +4,7 @@ import { Box, useTheme, CircularProgress, Typography } from '@mui/material'
 import Header from 'components/Header'
 import { useGetSalesQuery } from 'state/api'
 import MonthlyChart from '../../components/MonthlyChart'
+import { FormattedMessage } from 'react-intl'
 
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -16,12 +17,12 @@ const Monthly = () => {
 
     const { monthlyData } = data
     const totalSalesLine = {
-      id: 'Total Sales',
+      id: <FormattedMessage id={'monthly.totalSales'} />,
       color: theme.palette.dailyScene.chart.line1,
       data: [],
     }
     const totalUnitsLine = {
-      id: 'Total Units',
+      id: <FormattedMessage id={'monthly.totalUnits'} />,
       color: theme.palette.dailyScene.chart.line2,
       data: [],
     }
@@ -43,7 +44,7 @@ const Monthly = () => {
 
   return (
     <Box sx={containerStyleScene}>
-      <Header title={'Monthly'} />
+      <Header title={'monthly'} />
       <Box
         sx={{
           ...containerStyle,

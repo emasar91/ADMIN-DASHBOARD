@@ -13,7 +13,7 @@ const Performance = () => {
 
   return (
     <Box sx={containerStyleScene}>
-      <Header title={'Performance'} />
+      <Header title={'performance'} />
       <Box
         sx={{
           ...containerStyle,

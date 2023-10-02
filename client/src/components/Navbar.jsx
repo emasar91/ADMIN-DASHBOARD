@@ -3,8 +3,6 @@ import {
   LightModeOutlined,
   DarkModeOutlined,
   Menu as MenuIcon,
-  Search,
-  SettingsOutlined,
   ArrowDropDownOutlined,
 } from '@mui/icons-material'
 import { useDispatch } from 'react-redux'
@@ -14,7 +12,6 @@ import {
   AppBar,
   Button,
   IconButton,
-  InputBase,
   Toolbar,
   useTheme,
   Box,
@@ -23,6 +20,7 @@ import {
   MenuItem,
 } from '@mui/material'
 import BoxFlexBetween from './BoxFlexBetween'
+import LanguageSelector from './LanguageSelector'
 
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen, drawerWidth }) => {
   const dispatch = useDispatch()
@@ -30,6 +28,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen, drawerWidth }) => {
 
   const [anchorEl, setAnchorEl] = useState(null)
   const isOpen = Boolean(anchorEl)
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
   }
@@ -39,6 +38,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen, drawerWidth }) => {
   const handleChangeMode = () => {
     dispatch(setMode())
   }
+
   return (
     <AppBar
       position='fixed'
@@ -79,21 +79,6 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen, drawerWidth }) => {
           >
             <MenuIcon />
           </IconButton>
-          <BoxFlexBetween
-            sx={{
-              backgroundColor: `${theme.palette.navBar.searchBar.background}`,
-              borderRadius: '20px',
-              gap: '3rem',
-              padding: '0.1rem 1.5rem',
-            }}
-          >
-            <InputBase placeholder='Search...' />
-            <IconButton>
-              <Search
-                sx={{ color: theme.palette.navBar.searchBar.iconColor }}
-              />
-            </IconButton>
-          </BoxFlexBetween>
         </BoxFlexBetween>
         <BoxFlexBetween sx={{ gap: '1.5rem' }}>
           <IconButton onClick={handleChangeMode}>
@@ -103,9 +88,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen, drawerWidth }) => {
               <DarkModeOutlined sx={{ fontSize: '25px' }} />
             )}
           </IconButton>
-          <IconButton>
-            <SettingsOutlined sx={{ fontSize: '25px' }} />
-          </IconButton>
+          <LanguageSelector />
 
           <BoxFlexBetween>
             <Button

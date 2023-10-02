@@ -12,6 +12,7 @@ import {
   CircularProgress,
   Typography,
 } from '@mui/material'
+import { FormattedMessage } from 'react-intl'
 
 const PerformanceTable = ({
   rowTitles,
@@ -80,7 +81,9 @@ const PerformanceTable = ({
                     key={row.headerName}
                     sx={{ textAlign: 'center', fontWeight: 700 }}
                   >
-                    {row.headerName}
+                    <FormattedMessage
+                      id={`performance.table.titles.${row.headerName}`}
+                    />
                   </TableCell>
                 ))}
               </TableRow>

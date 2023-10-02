@@ -1,6 +1,7 @@
 import React from 'react'
 import { ResponsiveLine } from '@nivo/line'
 import { useTheme } from '@mui/material'
+import { FormattedMessage } from 'react-intl'
 
 const DailyChart = ({ data }) => {
   const theme = useTheme()
@@ -37,7 +38,7 @@ const DailyChart = ({ data }) => {
         },
       }}
       colors={{ datum: 'color' }}
-      margin={{ top: 50, right: 50, bottom: 70, left: 60 }}
+      margin={{ top: 50, right: 10, bottom: 70, left: 60 }}
       xScale={{ type: 'point' }}
       yScale={{
         type: 'linear',
@@ -55,7 +56,7 @@ const DailyChart = ({ data }) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 90,
-        legend: 'Month',
+        legend: <FormattedMessage id={'monthly.chart.month'} />,
         legendOffset: 60,
         legendPosition: 'middle',
       }}
@@ -64,7 +65,7 @@ const DailyChart = ({ data }) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: 'Total',
+        legend: <FormattedMessage id={'monthly.chart.total'} />,
         legendOffset: -50,
         legendPosition: 'middle',
       }}
@@ -80,7 +81,7 @@ const DailyChart = ({ data }) => {
           anchor: 'top-right',
           direction: 'column',
           justify: false,
-          translateX: 50,
+          translateX: -20,
           translateY: 0,
           itemsSpacing: 0,
           itemDirection: 'left-to-right',

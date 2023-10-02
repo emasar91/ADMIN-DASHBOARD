@@ -1,7 +1,7 @@
 import { Typography, Box, useTheme } from '@mui/material'
 import React from 'react'
-
-const Header = ({ title, subtitle }) => {
+import { FormattedMessage } from 'react-intl'
+const Header = ({ title }) => {
   const theme = useTheme()
   return (
     <Box>
@@ -14,7 +14,7 @@ const Header = ({ title, subtitle }) => {
           color: theme.palette.scenes.title,
         }}
       >
-        {title}
+        <FormattedMessage id={`title.${title}`} />
       </Typography>
     </Box>
   )

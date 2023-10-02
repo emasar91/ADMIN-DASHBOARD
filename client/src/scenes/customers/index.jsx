@@ -14,6 +14,7 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material'
+import { FormattedMessage } from 'react-intl'
 
 const Customers = () => {
   const theme = useTheme()
@@ -21,25 +22,25 @@ const Customers = () => {
 
   const rowTitles = [
     {
-      headerName: 'ID',
+      headerName: 'id',
     },
     {
-      headerName: 'Name',
+      headerName: 'name',
     },
     {
-      headerName: 'Email',
+      headerName: 'email',
     },
     {
-      headerName: 'Phone Number',
+      headerName: 'phoneNumber',
     },
     {
-      headerName: 'Country',
+      headerName: 'country',
     },
     {
-      headerName: 'Occupation',
+      headerName: 'occupation',
     },
     {
-      headerName: 'Role',
+      headerName: 'role',
     },
   ]
 
@@ -84,7 +85,7 @@ const Customers = () => {
 
   return (
     <Box sx={containerStyleScene}>
-      <Header title={'Customers'} />
+      <Header title={'customers'} />
       <Box
         sx={{
           ...containerStyle,
@@ -113,7 +114,9 @@ const Customers = () => {
                         key={row.headerName}
                         sx={{ textAlign: 'center', fontWeight: 700 }}
                       >
-                        {row.headerName}
+                        <FormattedMessage
+                          id={`costumers.table.titles.${row.headerName}`}
+                        />
                       </TableCell>
                     ))}
                   </TableRow>

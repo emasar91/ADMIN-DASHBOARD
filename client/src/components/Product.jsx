@@ -13,6 +13,7 @@ import {
 } from '@mui/material'
 
 import { TitleFormat } from '../utils'
+import { FormattedMessage } from 'react-intl'
 
 const Product = ({
   _id,
@@ -79,7 +80,7 @@ const Product = ({
               size='small'
               onClick={() => setIsExpanded(!isExpanded)}
             >
-              see More
+              <FormattedMessage id='product.more' />
             </Button>
           </CardActions>
         ) : (
@@ -103,13 +104,19 @@ const Product = ({
               color: theme.palette.productScene.product.actionButtons.moreData,
             }}
           >
-            <Typography>ID: {_id}</Typography>
-            <Typography>Supply left: {supply}</Typography>
             <Typography>
-              Yearly Sales This Year: {stat[0].yearlySalesTotal}
+              <FormattedMessage id={'product.id'} />: {_id}
             </Typography>
             <Typography>
-              Yearly Units Sold this Year: {stat[0].yearlyTotalSoldUnits}
+              <FormattedMessage id={'product.supplyLeft'} />: {supply}
+            </Typography>
+            <Typography>
+              <FormattedMessage id={'product.yearlySales'} />:{' '}
+              {stat[0].yearlySalesTotal}
+            </Typography>
+            <Typography>
+              <FormattedMessage id={'product.yearlyUnits'} />:{' '}
+              {stat[0].yearlyTotalSoldUnits}
             </Typography>
           </CardContent>
         </Collapse>

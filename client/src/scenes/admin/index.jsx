@@ -14,31 +14,32 @@ import {
 import Header from 'components/Header'
 import { containerStyleScene, containerStyle } from '../constants'
 import { useGetAdminsQuery } from 'state/api'
+import { FormattedMessage } from 'react-intl'
 
 const Admin = () => {
   const theme = useTheme()
   const { data, isLoading } = useGetAdminsQuery()
   const rowTitles = [
     {
-      headerName: 'ID',
+      headerName: 'id',
     },
     {
-      headerName: 'Name',
+      headerName: 'name',
     },
     {
-      headerName: 'Email',
+      headerName: 'email',
     },
     {
-      headerName: 'Phone Number',
+      headerName: 'phoneNumber',
     },
     {
-      headerName: 'Country',
+      headerName: 'country',
     },
     {
-      headerName: 'Occupation',
+      headerName: 'occupation',
     },
     {
-      headerName: 'Role',
+      headerName: 'role',
     },
   ]
 
@@ -80,7 +81,7 @@ const Admin = () => {
   }
   return (
     <Box sx={containerStyleScene}>
-      <Header title={'Admins'} />
+      <Header title={'admin'} />
       <Box
         sx={{
           ...containerStyle,
@@ -109,7 +110,9 @@ const Admin = () => {
                         key={row.headerName}
                         sx={{ textAlign: 'center', fontWeight: 700 }}
                       >
-                        {row.headerName}
+                        <FormattedMessage
+                          id={`admins.table.titles.${row.headerName}`}
+                        />
                       </TableCell>
                     ))}
                   </TableRow>

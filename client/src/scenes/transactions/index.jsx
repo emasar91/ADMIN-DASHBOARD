@@ -5,9 +5,12 @@ import Header from 'components/Header'
 import { useTheme, Box } from '@mui/material'
 import { containerStyleScene, containerStyle } from '../constants'
 import DataGridCustomToolbar from '../../components/DataGridCustomToolbar'
+import { FormattedMessage } from 'react-intl'
+import { useSelector } from 'react-redux'
 
 const Transactions = () => {
   const theme = useTheme()
+  const lang = useSelector((state) => state.global.languageSelected)
 
   const [page, setPage] = useState(0)
   const [pageSize, setPageSize] = useState(25)
@@ -25,29 +28,42 @@ const Transactions = () => {
   const columns = [
     {
       field: '_id',
-      headerNAme: 'ID',
+      headerName: <FormattedMessage id={'transactions.table.titles.id'} />,
       flex: 1,
     },
     {
       field: 'userId',
-      headerNAme: 'User ID',
+      headerName: <FormattedMessage id={'transactions.table.titles.userId'} />,
       flex: 1,
     },
     {
       field: 'createdAt',
-      headerNAme: 'Created At',
+      headerName: (
+        <FormattedMessage id={'transactions.table.titles.createdAt'} />
+      ),
+      renderCell: (params) => {
+        const date = new Date(params.value)
+        return date.toLocaleString(lang, {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })
+      },
       flex: 1,
     },
     {
       field: 'products',
-      headerNAme: '# of products',
-      flex: 0.5,
+      headerName: (
+        <FormattedMessage id={'transactions.table.titles.products'} />
+      ),
       sortable: false,
       renderCell: (params) => params.value.length,
+      flex: 0.5,
     },
     {
       field: 'cost',
-      headerNAme: 'Cost',
+      headerName: <FormattedMessage id={'transactions.table.titles.cost'} />,
       renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
       flex: 1,
     },
@@ -55,7 +71,7 @@ const Transactions = () => {
 
   return (
     <Box sx={containerStyleScene}>
-      <Header title={'Transactions'} />
+      <Header title={'transactions'} />
       <Box
         sx={{
           containerStyle,

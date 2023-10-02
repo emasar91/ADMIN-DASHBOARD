@@ -3,8 +3,6 @@ import {
   Box,
   Divider,
   Drawer,
-  DrawerHeader,
-  IconButton,
   List,
   ListItem,
   ListItemButton,
@@ -14,13 +12,10 @@ import {
   useTheme,
 } from '@mui/material'
 import {
-  SettingsOutlined,
-  ChevronLeft,
   HomeOutlined,
   ShoppingCartOutlined,
   Groups2Outlined,
   ReceiptLongOutlined,
-  PublicOutlined,
   PointOfSaleOutlined,
   TodayOutlined,
   CalendarMonthOutlined,
@@ -32,21 +27,74 @@ import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import BoxFlexBetween from './BoxFlexBetween'
 import profileImage from '../assets/profile.jpeg'
+import { FormattedMessage } from 'react-intl'
 
 const navItems = [
-  { text: 'Dashboard', icon: <HomeOutlined /> },
-  { text: 'Client Facing', icon: null },
-  { text: 'Products', icon: <ShoppingCartOutlined /> },
-  { text: 'Customers', icon: <Groups2Outlined /> },
-  { text: 'Transactions', icon: <ReceiptLongOutlined /> },
-  { text: 'Sales', icon: null },
-  { text: 'OverView', icon: <PointOfSaleOutlined /> },
-  { text: 'Daily', icon: <TodayOutlined /> },
-  { text: 'Monthly', icon: <CalendarMonthOutlined /> },
-  { text: 'BreakDown', icon: <PieChartOutlined /> },
-  { text: 'Management', icon: null },
-  { text: 'Admin', icon: <AdminPanelSettingsOutlined /> },
-  { text: 'Performance', icon: <TrendingUpOutlined /> },
+  {
+    text: <FormattedMessage id='sideBar.home' />,
+    icon: <HomeOutlined />,
+    navigateTo: 'dashboard',
+  },
+  {
+    text: <FormattedMessage id='sideBar.clientFacing' />,
+    icon: null,
+    navigateTo: null,
+  },
+  {
+    text: <FormattedMessage id='sideBar.products' />,
+    icon: <ShoppingCartOutlined />,
+    navigateTo: 'Products',
+  },
+  {
+    text: <FormattedMessage id='sideBar.customers' />,
+    icon: <Groups2Outlined />,
+    navigateTo: 'Customers',
+  },
+  {
+    text: <FormattedMessage id='sideBar.transactions' />,
+    icon: <ReceiptLongOutlined />,
+    navigateTo: 'Transactions',
+  },
+  {
+    text: <FormattedMessage id='sideBar.sales' />,
+    icon: null,
+    navigateTo: null,
+  },
+  {
+    text: <FormattedMessage id='sideBar.overView' />,
+    icon: <PointOfSaleOutlined />,
+    navigateTo: 'OverView',
+  },
+  {
+    text: <FormattedMessage id='sideBar.daily' />,
+    icon: <TodayOutlined />,
+    navigateTo: 'Daily',
+  },
+  {
+    text: <FormattedMessage id='sideBar.monthly' />,
+    icon: <CalendarMonthOutlined />,
+    navigateTo: 'Monthly',
+  },
+  {
+    text: <FormattedMessage id='sideBar.breakDown' />,
+    icon: <PieChartOutlined />,
+    navigateTo: 'breakDown',
+  },
+  {
+    text: <FormattedMessage id='sideBar.management' />,
+    icon: null,
+    navigateTo: null,
+  },
+  {
+    text: <FormattedMessage id='sideBar.admin' />,
+    icon: <AdminPanelSettingsOutlined />,
+    navigateTo: 'Admin',
+  },
+  {
+    text: <FormattedMessage id='sideBar.performance' />,
+    icon: <TrendingUpOutlined />,
+    navigateTo: 'Performance',
+  },
 ]
 
 const SideBar = ({
@@ -111,7 +159,7 @@ const SideBar = ({
         </Box>
         <Divider />
         <List>
-          {navItems.map(({ text, icon }) => {
+          {navItems.map(({ text, icon, navigateTo }) => {
             if (!icon) {
               return (
                 <Typography
@@ -122,7 +170,7 @@ const SideBar = ({
                 </Typography>
               )
             }
-            const lowerCaseText = text.toLowerCase()
+            const lowerCaseText = navigateTo.toLowerCase()
             return (
               <ListItem
                 key={text}

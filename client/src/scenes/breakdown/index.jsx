@@ -11,7 +11,7 @@ function Breakdown() {
 
   return (
     <Box sx={containerStyleScene}>
-      <Header title={'BreakDown'} />
+      <Header title={'breakDown'} />
       <Box
         sx={{
           ...containerStyle,

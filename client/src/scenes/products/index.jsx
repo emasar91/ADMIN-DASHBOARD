@@ -11,7 +11,7 @@ const Products = () => {
   const isNonMobile = useMediaQuery('(min-width:1000px)')
   return (
     <Box sx={containerStyleScene}>
-      <Header title={'Products'} />
+      <Header title={'products'} />
       <Box sx={containerStyle}>
         {!isLoading ? (
           <Box

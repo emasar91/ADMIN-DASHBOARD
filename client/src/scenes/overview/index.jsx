@@ -10,13 +10,14 @@ import {
   useTheme,
 } from '@mui/material'
 import Header from 'components/Header'
+import { FormattedMessage } from 'react-intl'
 
 const Overview = () => {
   const theme = useTheme()
   const [view, setView] = useState('units')
   return (
     <Box sx={containerStyleScene}>
-      <Header title={'OverView'} />
+      <Header title={'overView'} />
       <Box
         sx={{
           ...containerStyle,
@@ -26,14 +27,20 @@ const Overview = () => {
         }}
       >
         <FormControl sx={{ mt: '1rem' }}>
-          <InputLabel>View</InputLabel>
+          <InputLabel>
+            <FormattedMessage id={'overView.view'} />
+          </InputLabel>
           <Select
             value={view}
             label={'View'}
             onChange={(e) => setView(e.target.value)}
           >
-            <MenuItem value='sales'>Sales</MenuItem>
-            <MenuItem value='units'>Units</MenuItem>
+            <MenuItem value='sales'>
+              <FormattedMessage id={'overView.sales'} />
+            </MenuItem>
+            <MenuItem value='units'>
+              <FormattedMessage id={'overView.units'} />
+            </MenuItem>
           </Select>
         </FormControl>
         <OverviewChart view={view} />
