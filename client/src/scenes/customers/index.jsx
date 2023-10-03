@@ -15,6 +15,7 @@ import {
   TableRow,
 } from '@mui/material'
 import { FormattedMessage } from 'react-intl'
+import LoadingContainer from 'components/LoadingContainer'
 
 const Customers = () => {
   const theme = useTheme()
@@ -96,9 +97,10 @@ const Customers = () => {
           sx={{
             padding: '16px',
             backgroundColor: theme.palette.costumersScene.background,
+            height: '100%',
           }}
         >
-          {!isLoading ? (
+          <LoadingContainer isLoading={isLoading}>
             <TableContainer
               sx={{
                 boxShadow: 'none',
@@ -161,21 +163,7 @@ const Customers = () => {
                 </TableBody>
               </Table>
             </TableContainer>
-          ) : (
-            <Box
-              sx={{
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '80vh',
-              }}
-            >
-              <CircularProgress color={'primary'} />
-              <Typography sx={{ paddingTop: '24px' }}>Loading</Typography>
-            </Box>
-          )}
+          </LoadingContainer>
         </Box>
       </Box>
     </Box>

@@ -127,5 +127,6 @@ const es = {
       sinceLastMonth: 'Desde el més pasado',
     },
   },
+  loading: 'Cargando...',
 }
 export default es

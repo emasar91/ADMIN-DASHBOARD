@@ -127,6 +127,7 @@ const pt = {
       sinceLastMonth: 'Desde o passado',
     },
   },
+  loading: 'Carregando...',
 }
 
 export default pt

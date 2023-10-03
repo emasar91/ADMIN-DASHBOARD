@@ -8,6 +8,7 @@ import DailyChart from '../../components/DailyChart'
 
 import 'react-datepicker/dist/react-datepicker.css'
 import { FormattedMessage } from 'react-intl'
+import LoadingContainer from 'components/LoadingContainer'
 
 const Daily = () => {
   const theme = useTheme()
@@ -78,25 +79,11 @@ const Daily = () => {
             minDate={startDate}
           />
         </Box>
-        {!isLoading ? (
+        <LoadingContainer isLoading={isLoading} height={'97%'}>
           <Box sx={{ height: '95%' }}>
             <DailyChart data={formattedData} />
           </Box>
-        ) : (
-          <Box
-            sx={{
-              width: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '70vh',
-            }}
-          >
-            <CircularProgress color={'primary'} />
-            <Typography sx={{ paddingTop: '24px' }}>Loading</Typography>
-          </Box>
-        )}
+        </LoadingContainer>
       </Box>
     </Box>
   )

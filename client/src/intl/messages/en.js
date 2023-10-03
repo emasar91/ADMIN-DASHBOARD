@@ -127,6 +127,6 @@ const en = {
       sinceLastMonth: 'Since Last Month',
     },
   },
-  loading: 'Cargando...',
+  loading: 'Loading...',
 }
 export default en

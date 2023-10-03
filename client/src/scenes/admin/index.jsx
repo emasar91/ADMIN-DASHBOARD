@@ -8,13 +8,12 @@ import {
   TableHead,
   TableCell,
   TableRow,
-  CircularProgress,
-  Typography,
 } from '@mui/material'
 import Header from 'components/Header'
 import { containerStyleScene, containerStyle } from '../constants'
 import { useGetAdminsQuery } from 'state/api'
 import { FormattedMessage } from 'react-intl'
+import LoadingContainer from 'components/LoadingContainer'
 
 const Admin = () => {
   const theme = useTheme()
@@ -92,9 +91,10 @@ const Admin = () => {
           sx={{
             padding: '16px',
             backgroundColor: theme.palette.adminScene.background,
+            height: '100%',
           }}
         >
-          {!isLoading ? (
+          <LoadingContainer isLoading={isLoading}>
             <TableContainer
               sx={{
                 boxShadow: 'none',
@@ -157,21 +157,7 @@ const Admin = () => {
                 </TableBody>
               </Table>
             </TableContainer>
-          ) : (
-            <Box
-              sx={{
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '80vh',
-              }}
-            >
-              <CircularProgress color={'primary'} />
-              <Typography sx={{ paddingTop: '24px' }}>Loading</Typography>
-            </Box>
-          )}
+          </LoadingContainer>
         </Box>
       </Box>
     </Box>

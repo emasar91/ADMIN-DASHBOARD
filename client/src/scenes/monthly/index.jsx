@@ -1,12 +1,13 @@
 import React, { useMemo } from 'react'
 import { containerStyleScene, containerStyle } from '../constants'
-import { Box, useTheme, CircularProgress, Typography } from '@mui/material'
+import { Box, useTheme } from '@mui/material'
 import Header from 'components/Header'
 import { useGetSalesQuery } from 'state/api'
 import MonthlyChart from '../../components/MonthlyChart'
 import { FormattedMessage } from 'react-intl'
 
 import 'react-datepicker/dist/react-datepicker.css'
+import LoadingContainer from 'components/LoadingContainer'
 
 const Monthly = () => {
   const theme = useTheme()
@@ -53,25 +54,11 @@ const Monthly = () => {
           borderRadius: '0.55rem',
         }}
       >
-        {!isLoading ? (
+        <LoadingContainer isLoading={isLoading}>
           <Box sx={{ height: '95%' }}>
             <MonthlyChart data={formattedData} />
           </Box>
-        ) : (
-          <Box
-            sx={{
-              width: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '70vh',
-            }}
-          >
-            <CircularProgress color={'primary'} />
-            <Typography sx={{ paddingTop: '24px' }}>Loading</Typography>
-          </Box>
-        )}
+        </LoadingContainer>
       </Box>
     </Box>
   )

@@ -1,10 +1,11 @@
 import React from 'react'
-import { Box, Typography, useMediaQuery, CircularProgress } from '@mui/material'
+import { Box, useMediaQuery } from '@mui/material'
 
 import Header from 'components/Header'
 import { useGetProductsQuery } from 'state/api'
 import Product from '../../components/Product'
 import { containerStyleScene, containerStyle } from '../constants'
+import LoadingContainer from 'components/LoadingContainer'
 
 const Products = () => {
   const { data, isLoading } = useGetProductsQuery()
@@ -13,7 +14,7 @@ const Products = () => {
     <Box sx={containerStyleScene}>
       <Header title={'products'} />
       <Box sx={containerStyle}>
-        {!isLoading ? (
+        <LoadingContainer isLoading={isLoading}>
           <Box
             sx={{
               display: 'grid',
@@ -50,21 +51,7 @@ const Products = () => {
               )
             )}
           </Box>
-        ) : (
-          <Box
-            sx={{
-              width: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '80vh',
-            }}
-          >
-            <CircularProgress color={'primary'} />
-            <Typography sx={{ paddingTop: '24px' }}>Loading</Typography>
-          </Box>
-        )}
+        </LoadingContainer>
       </Box>
     </Box>
   )

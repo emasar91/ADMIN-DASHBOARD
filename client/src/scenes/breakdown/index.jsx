@@ -1,9 +1,10 @@
 import React from 'react'
-import { Box, useTheme, CircularProgress, Typography } from '@mui/material'
+import { Box, useTheme } from '@mui/material'
 import Header from 'components/Header'
 import BreakDownChart from '../../components/BreakDownChart'
 import { containerStyle, containerStyleScene } from '../constants'
 import { useGetSalesQuery } from 'state/api'
+import LoadingContainer from 'components/LoadingContainer'
 
 function Breakdown() {
   const { data, isLoading } = useGetSalesQuery()
@@ -20,25 +21,11 @@ function Breakdown() {
           borderRadius: '0.55rem',
         }}
       >
-        {!isLoading ? (
+        <LoadingContainer isLoading={isLoading}>
           <Box sx={{ height: '90%' }}>
             <BreakDownChart data={data} isLoading={isLoading} />
           </Box>
-        ) : (
-          <Box
-            sx={{
-              width: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '70vh',
-            }}
-          >
-            <CircularProgress color={'primary'} />
-            <Typography sx={{ paddingTop: '24px' }}>Loading</Typography>
-          </Box>
-        )}
+        </LoadingContainer>
       </Box>
     </Box>
   )

@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react'
 import { ResponsiveLine } from '@nivo/line'
-import { Box, Typography, CircularProgress, useTheme } from '@mui/material'
+import { Box, useTheme } from '@mui/material'
 import { useGetSalesQuery } from 'state/api'
 import { FormattedMessage } from 'react-intl'
-import LoadingBox from './LoadingBox'
+import LoadingContainer from './LoadingContainer'
 
 const OverviewChart = ({ isDashboard = false, view }) => {
   const theme = useTheme()
@@ -55,7 +55,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
 
   return (
     <Box height={'90%'}>
-      {!isLoading ? (
+      <LoadingContainer isLoading={isLoading}>
         <ResponsiveLine
           data={view === 'sales' ? totalSalesLine : totalUnitsLine}
           theme={{
@@ -157,9 +157,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
               : undefined
           }
         />
-      ) : (
-        <LoadingBox />
-      )}
+      </LoadingContainer>
     </Box>
   )
 }

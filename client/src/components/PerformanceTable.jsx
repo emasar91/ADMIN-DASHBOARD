@@ -13,6 +13,7 @@ import {
   Typography,
 } from '@mui/material'
 import { FormattedMessage } from 'react-intl'
+import LoadingContainer from './LoadingContainer'
 
 const PerformanceTable = ({
   rowTitles,
@@ -63,9 +64,10 @@ const PerformanceTable = ({
       sx={{
         padding: '16px',
         backgroundColor: theme.palette.performanceScene.background,
+        height: '100%',
       }}
     >
-      {!isLoading ? (
+      <LoadingContainer isLoading={isLoading}>
         <TableContainer
           sx={{
             boxShadow: 'none',
@@ -127,21 +129,7 @@ const PerformanceTable = ({
             </TableBody>
           </Table>
         </TableContainer>
-      ) : (
-        <Box
-          sx={{
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '80vh',
-          }}
-        >
-          <CircularProgress color={'primary'} />
-          <Typography sx={{ paddingTop: '24px' }}>Loading</Typography>
-        </Box>
-      )}
+      </LoadingContainer>
     </Box>
   )
 }

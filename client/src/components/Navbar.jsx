@@ -26,15 +26,6 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen, drawerWidth }) => {
   const dispatch = useDispatch()
   const theme = useTheme()
 
-  const [anchorEl, setAnchorEl] = useState(null)
-  const isOpen = Boolean(anchorEl)
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handleClose = () => setAnchorEl(null)
-
   const handleChangeMode = () => {
     dispatch(setMode())
   }
@@ -91,58 +82,37 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen, drawerWidth }) => {
           <LanguageSelector />
 
           <BoxFlexBetween>
-            <Button
-              onClick={handleClick}
+            <Box
+              component={'img'}
+              alt='profile'
+              src={profileImage}
               sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                textTransform: 'none',
-                gap: '1rem',
+                height: '32px',
+                width: '32px',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                margin: '0 12px',
               }}
-            >
-              <Box
-                component={'img'}
-                alt='profile'
-                src={profileImage}
+            />
+            <Box sx={{ textAlign: 'left' }}>
+              <Typography
                 sx={{
-                  height: '32px',
-                  width: '32px',
-                  borderRadius: '50%',
-                  objectFit: 'cover',
+                  fontWeight: 'bold',
+                  fontSize: '0.85rem',
+                  color: theme.palette.selectedItem,
                 }}
-              />
-              <Box sx={{ textAlign: 'left' }}>
-                <Typography
-                  sx={{
-                    fontWeight: 'bold',
-                    fontSize: '0.85rem',
-                    color: theme.palette.selectedItem,
-                  }}
-                >
-                  {user.name}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: '0.75rem',
-                    color: theme.palette.noneSelected,
-                  }}
-                >
-                  {user.occupation}
-                </Typography>
-              </Box>
-              <ArrowDropDownOutlined
-                sx={{ color: theme.palette.selectedItem, fontSize: '25px' }}
-              />
-            </Button>
-            <Menu
-              anchorEl={anchorEl}
-              open={isOpen}
-              onClose={handleClose}
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-            >
-              <MenuItem onClick={handleClose}>Log Out</MenuItem>
-            </Menu>
+              >
+                {user.name}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: '0.75rem',
+                  color: theme.palette.noneSelected,
+                }}
+              >
+                {user.occupation}
+              </Typography>
+            </Box>
           </BoxFlexBetween>
         </BoxFlexBetween>
       </Toolbar>

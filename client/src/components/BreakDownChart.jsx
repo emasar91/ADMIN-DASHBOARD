@@ -1,6 +1,7 @@
 import React from 'react'
 import { ResponsivePie } from '@nivo/pie'
 import { useTheme, Box } from '@mui/material'
+import LoadingContainer from './LoadingContainer'
 
 const BreakDownChart = ({ data, isLoading, isDashboard = false }) => {
   const theme = useTheme()
@@ -29,58 +30,60 @@ const BreakDownChart = ({ data, isLoading, isDashboard = false }) => {
       minWidth={isDashboard ? '325px' : undefined}
       position='relative'
     >
-      <ResponsivePie
-        data={formattedData || []}
-        theme={{
-          tooltip: {
-            container: {
-              color: theme.palette.breakdownScene.chart.tooltip.text,
-              backgroundColor:
-                theme.palette.breakdownScene.chart.tooltip.background,
+      <LoadingContainer isLoading={isLoading}>
+        <ResponsivePie
+          data={formattedData || []}
+          theme={{
+            tooltip: {
+              container: {
+                color: theme.palette.breakdownScene.chart.tooltip.text,
+                backgroundColor:
+                  theme.palette.breakdownScene.chart.tooltip.background,
+              },
             },
-          },
-        }}
-        colors={{ datum: 'data.color' }}
-        margin={
-          isDashboard
-            ? { top: 40, right: 80, bottom: 100, left: 50 }
-            : { top: 40, right: 80, bottom: 80, left: 80 }
-        }
-        sortByValue={true}
-        innerRadius={0.45}
-        activeOuterRadiusOffset={8}
-        borderWidth={1}
-        borderColor={{
-          from: 'color',
-          modifiers: [['darker', 0.2]],
-        }}
-        enableArcLinkLabels={!isDashboard}
-        arcLinkLabelsTextColor={theme.palette.breakdownScene.chart.values}
-        arcLinkLabelsThickness={2}
-        arcLinkLabelsColor={{ from: 'color' }}
-        arcLabelsSkipAngle={10}
-        arcLabelsTextColor={{
-          from: 'color',
-          modifiers: [['darker', 2]],
-        }}
-        legends={[
-          {
-            anchor: 'bottom',
-            direction: 'row',
-            justify: false,
-            translateX: isDashboard ? 20 : 0,
-            translateY: isDashboard ? 50 : 56,
-            itemsSpacing: 0,
-            itemWidth: 85,
-            itemHeight: 18,
-            itemTextColor: '#999',
-            itemDirection: 'left-to-right',
-            itemOpacity: 1,
-            symbolSize: 18,
-            symbolShape: 'circle',
-          },
-        ]}
-      />
+          }}
+          colors={{ datum: 'data.color' }}
+          margin={
+            isDashboard
+              ? { top: 40, right: 80, bottom: 100, left: 50 }
+              : { top: 40, right: 80, bottom: 80, left: 80 }
+          }
+          sortByValue={true}
+          innerRadius={0.45}
+          activeOuterRadiusOffset={8}
+          borderWidth={1}
+          borderColor={{
+            from: 'color',
+            modifiers: [['darker', 0.2]],
+          }}
+          enableArcLinkLabels={!isDashboard}
+          arcLinkLabelsTextColor={theme.palette.breakdownScene.chart.values}
+          arcLinkLabelsThickness={2}
+          arcLinkLabelsColor={{ from: 'color' }}
+          arcLabelsSkipAngle={10}
+          arcLabelsTextColor={{
+            from: 'color',
+            modifiers: [['darker', 2]],
+          }}
+          legends={[
+            {
+              anchor: 'bottom',
+              direction: 'row',
+              justify: false,
+              translateX: isDashboard ? 20 : 0,
+              translateY: isDashboard ? 50 : 56,
+              itemsSpacing: 0,
+              itemWidth: 85,
+              itemHeight: 18,
+              itemTextColor: '#999',
+              itemDirection: 'left-to-right',
+              itemOpacity: 1,
+              symbolSize: 18,
+              symbolShape: 'circle',
+            },
+          ]}
+        />
+      </LoadingContainer>
     </Box>
   )
 }
