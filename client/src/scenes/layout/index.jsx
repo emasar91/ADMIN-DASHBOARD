@@ -1,9 +1,17 @@
 import React, { useState } from 'react'
-import { Box, useMediaQuery, useTheme, styled } from '@mui/material'
+
+//import material ui
+import { Box, useMediaQuery, useTheme } from '@mui/material'
+
+//import libraries foreign
 import { Outlet } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+
+//import own components
 import Navbar from 'components/Navbar'
 import SideBar from 'components/SideBar'
+
+//import fetch data
 import { useGetUserQuery } from 'state/api'
 
 function Layout() {

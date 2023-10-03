@@ -1,5 +1,6 @@
 import React from 'react'
 
+//import material ui
 import {
   Box,
   useTheme,
@@ -9,10 +10,12 @@ import {
   TableHead,
   TableRow,
   TableCell,
-  CircularProgress,
-  Typography,
 } from '@mui/material'
+
+//import libraries foreign
 import { FormattedMessage } from 'react-intl'
+
+//import own components
 import LoadingContainer from './LoadingContainer'
 
 const PerformanceTable = ({

@@ -1,13 +1,21 @@
 import React, { useMemo } from 'react'
+//import Constant
 import { containerStyleScene, containerStyle } from '../constants'
-import { Box, useTheme } from '@mui/material'
-import Header from 'components/Header'
-import { useGetSalesQuery } from 'state/api'
-import MonthlyChart from '../../components/MonthlyChart'
-import { FormattedMessage } from 'react-intl'
 
+//import material ui
+import { Box, useTheme } from '@mui/material'
+
+//import libraries foreign
+import { FormattedMessage } from 'react-intl'
 import 'react-datepicker/dist/react-datepicker.css'
+
+//import own components
+import Header from 'components/Header'
+import MonthlyChart from '../../components/MonthlyChart'
 import LoadingContainer from 'components/LoadingContainer'
+
+//import fetch data
+import { useGetSalesQuery } from 'state/api'
 
 const Monthly = () => {
   const theme = useTheme()

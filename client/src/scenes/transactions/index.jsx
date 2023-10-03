@@ -1,12 +1,21 @@
 import React, { useState } from 'react'
-import { DataGrid } from '@mui/x-data-grid'
-import { useGetTransactionsQuery } from 'state/api'
-import Header from 'components/Header'
-import { useTheme, Box } from '@mui/material'
+//import Constant
 import { containerStyleScene, containerStyle } from '../constants'
-import DataGridCustomToolbar from '../../components/DataGridCustomToolbar'
+
+//import material ui
+import { useTheme, Box } from '@mui/material'
+
+//import libraries foreign
+import { DataGrid } from '@mui/x-data-grid'
 import { FormattedMessage } from 'react-intl'
 import { useSelector } from 'react-redux'
+
+//import own components
+import Header from 'components/Header'
+import DataGridCustomToolbar from '../../components/DataGridCustomToolbar'
+
+//import fetch data
+import { useGetTransactionsQuery } from 'state/api'
 
 const Transactions = () => {
   const theme = useTheme()

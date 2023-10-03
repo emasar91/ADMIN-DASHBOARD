@@ -1,9 +1,17 @@
 import React, { useMemo } from 'react'
-import { ResponsiveLine } from '@nivo/line'
+
+//import material ui
 import { Box, useTheme } from '@mui/material'
-import { useGetSalesQuery } from 'state/api'
+
+//import libraries foreign
+import { ResponsiveLine } from '@nivo/line'
 import { FormattedMessage } from 'react-intl'
+
+//import own components
 import LoadingContainer from './LoadingContainer'
+
+//import fetch data
+import { useGetSalesQuery } from 'state/api'
 
 const OverviewChart = ({ isDashboard = false, view }) => {
   const theme = useTheme()

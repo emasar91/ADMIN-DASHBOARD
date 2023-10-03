@@ -1,6 +1,12 @@
 import React from 'react'
-import { ResponsivePie } from '@nivo/pie'
+
+//import material ui
 import { useTheme, Box } from '@mui/material'
+
+//import libraries foreign
+import { ResponsivePie } from '@nivo/pie'
+
+//import own components
 import LoadingContainer from './LoadingContainer'
 
 const BreakDownChart = ({ data, isLoading, isDashboard = false }) => {

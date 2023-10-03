@@ -1,27 +1,35 @@
 import React from 'react'
-import Header from 'components/Header'
+//import Constant
+import { containerStyleScene, containerStyle } from '../constants'
+
+//import material ui
 import {
   EmailOutlined,
   PointOfSaleOutlined,
   PersonAddOutlined,
   TrafficOutlined,
 } from '@mui/icons-material'
-import { useSelector } from 'react-redux'
-
-import { containerStyleScene, containerStyle } from '../constants'
-import { rowTitles } from '../performance/performanceTableTitle'
 import { Box, useTheme, useMediaQuery } from '@mui/material'
+
+//import libraries foreign
+import { useSelector } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
+
+//import own components
+import StatBox from 'components/StatBox'
+import OverviewChart from 'components/OverviewChart'
+import PerformanceTable from 'components/PerformanceTable'
+import BreakDownChart from 'components/BreakDownChart'
+import LoadingContainer from 'components/LoadingContainer'
+import Header from 'components/Header'
+import { rowTitles } from '../performance/performanceTableTitle'
+
+//import fetch data
 import {
   useGetDashboardQuery,
   useGetUserPerformanceQuery,
   useGetSalesQuery,
 } from 'state/api'
-import StatBox from 'components/StatBox'
-import OverviewChart from 'components/OverviewChart'
-import PerformanceTable from 'components/PerformanceTable'
-import BreakDownChart from 'components/BreakDownChart'
-import { FormattedMessage } from 'react-intl'
-import LoadingContainer from 'components/LoadingContainer'
 
 const Dashboard = () => {
   const theme = useTheme()

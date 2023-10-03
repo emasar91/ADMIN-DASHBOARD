@@ -1,8 +1,14 @@
+import React, { useMemo } from 'react'
+
+//import material ui
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { createTheme } from '@mui/material/styles'
-import { useMemo } from 'react'
+
+//import libraries foreign
 import { useSelector } from 'react-redux'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+
+//import own components
 import { themeSettings } from 'theme'
 import Layout from 'scenes/layout'
 import Dashboard from 'scenes/dashboard'
@@ -15,8 +21,8 @@ import Monthly from 'scenes/monthly'
 import Breakdown from 'scenes/breakdown'
 import Admin from 'scenes/admin'
 import Performance from 'scenes/performance'
-import './App.css'
 import ErrorPage from './scenes/error'
+import './App.css'
 
 const App = () => {
   const mode = useSelector((state) => state.global.mode)

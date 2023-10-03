@@ -1,6 +1,11 @@
-import { Typography, Box, useTheme } from '@mui/material'
 import React from 'react'
+
+//import material ui
+import { Typography, Box, useTheme } from '@mui/material'
+
+//import libraries foreign
 import { FormattedMessage } from 'react-intl'
+
 const Header = ({ title }) => {
   const theme = useTheme()
   return (

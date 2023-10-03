@@ -1,7 +1,11 @@
 import React from 'react'
-import { ResponsiveLine } from '@nivo/line'
+
+//import material ui
 import { useTheme } from '@mui/material'
+
+//import libraries foreign
 import { FormattedMessage } from 'react-intl'
+import { ResponsiveLine } from '@nivo/line'
 
 const DailyChart = ({ data }) => {
   const theme = useTheme()

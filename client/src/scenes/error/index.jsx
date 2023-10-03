@@ -1,9 +1,12 @@
 import React from 'react'
 
-//component
-import { FormattedMessage } from 'react-intl'
+//import material ui
 import { Button, Typography, Paper } from '@mui/material'
 
+//import libraries foreign
+import { FormattedMessage } from 'react-intl'
+
+//import assets
 import ERROR_IMAGE from '../../assets/ERROR.png'
 
 const style = (theme) => ({

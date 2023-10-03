@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import ExpandLessOutlinedIcon from '@mui/icons-material/ExpandLessOutlined'
+
+//import material ui
 import {
   Card,
   CardActions,
@@ -11,9 +12,13 @@ import {
   useTheme,
   IconButton,
 } from '@mui/material'
+import ExpandLessOutlinedIcon from '@mui/icons-material/ExpandLessOutlined'
 
-import { TitleFormat } from '../utils'
+//import libraries foreign
 import { FormattedMessage } from 'react-intl'
+
+//import utils
+import { TitleFormat } from '../utils'
 
 const Product = ({
   _id,

@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
+
+//import material ui
 import { Button, MenuItem, Menu, Box, Tooltip, Typography } from '@mui/material'
+
+//import libraries foreign
+import { FormattedMessage } from 'react-intl'
+import { useSelector, useDispatch } from 'react-redux'
+
+//import fetch data
+import { setLanguage } from 'state'
+
+//import assets
 import EN from '../assets/icons/EN.png'
 import ES from '../assets/icons/ES.png'
 import PT from '../assets/icons/PT.png'
-import { FormattedMessage } from 'react-intl'
-import { setLanguage } from 'state'
-import { useSelector, useDispatch } from 'react-redux'
 
 const styles = {
   flag: {

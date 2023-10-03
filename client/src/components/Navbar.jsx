@@ -1,26 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
+
+//import material ui
 import {
   LightModeOutlined,
   DarkModeOutlined,
   Menu as MenuIcon,
-  ArrowDropDownOutlined,
 } from '@mui/icons-material'
-import { useDispatch } from 'react-redux'
-import { setMode } from 'state'
-import profileImage from '../assets/profile.jpeg'
 import {
   AppBar,
-  Button,
   IconButton,
   Toolbar,
   useTheme,
   Box,
   Typography,
-  Menu,
-  MenuItem,
 } from '@mui/material'
+
+//import libraries foreign
+import { useDispatch } from 'react-redux'
+//import own components
 import BoxFlexBetween from './BoxFlexBetween'
 import LanguageSelector from './LanguageSelector'
+
+//import fetch data
+import { setMode } from 'state'
+//import assets
+import profileImage from '../assets/profile.jpeg'
 
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen, drawerWidth }) => {
   const dispatch = useDispatch()

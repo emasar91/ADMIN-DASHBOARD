@@ -1,7 +1,10 @@
 import React from 'react'
-import { Search } from '@mui/icons-material'
-import { IconButton, TextField, InputAdornment } from '@mui/material'
 
+//import material ui
+import { IconButton, TextField, InputAdornment } from '@mui/material'
+import { Search } from '@mui/icons-material'
+
+//import libraries foreign
 import {
   GridToolbarDensitySelector,
   GridToolbarContainer,
@@ -9,6 +12,7 @@ import {
   GridToolbarColumnsButton,
 } from '@mui/x-data-grid'
 
+//import own components
 import BoxFlexBetween from './BoxFlexBetween'
 
 const DataGridCustomToolbar = ({ setSearchInput, setSearch, searchInput }) => {

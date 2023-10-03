@@ -1,11 +1,17 @@
 import React from 'react'
+//import Constant
+import { containerStyleScene, containerStyle } from '../constants'
+
+//import material ui
 import { Box, useMediaQuery } from '@mui/material'
 
+//import own components
 import Header from 'components/Header'
-import { useGetProductsQuery } from 'state/api'
 import Product from '../../components/Product'
-import { containerStyleScene, containerStyle } from '../constants'
 import LoadingContainer from 'components/LoadingContainer'
+
+//import fetch data
+import { useGetProductsQuery } from 'state/api'
 
 const Products = () => {
   const { data, isLoading } = useGetProductsQuery()

@@ -1,5 +1,9 @@
 import React from 'react'
+
+//import material ui
 import { Box, Typography, useTheme } from '@mui/material'
+
+//import own components
 import BoxFlexBetween from './BoxFlexBetween'
 
 const StatBox = ({ title, value, increase, icon, description }) => {

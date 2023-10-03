@@ -1,4 +1,8 @@
 import React from 'react'
+//import Constant
+import { containerStyleScene, containerStyle } from '../constants'
+
+//import material ui
 import {
   Box,
   useTheme,
@@ -9,11 +13,16 @@ import {
   TableCell,
   TableRow,
 } from '@mui/material'
-import Header from 'components/Header'
-import { containerStyleScene, containerStyle } from '../constants'
-import { useGetAdminsQuery } from 'state/api'
+
+//import libraries foreign
 import { FormattedMessage } from 'react-intl'
+
+//import own components
+import Header from 'components/Header'
 import LoadingContainer from 'components/LoadingContainer'
+
+//import fetch data
+import { useGetAdminsQuery } from 'state/api'
 
 const Admin = () => {
   const theme = useTheme()

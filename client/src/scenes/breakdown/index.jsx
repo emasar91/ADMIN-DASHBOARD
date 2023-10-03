@@ -1,10 +1,17 @@
 import React from 'react'
+//import Constant
+import { containerStyle, containerStyleScene } from '../constants'
+
+//import material ui
 import { Box, useTheme } from '@mui/material'
+
+//import own components
 import Header from 'components/Header'
 import BreakDownChart from '../../components/BreakDownChart'
-import { containerStyle, containerStyleScene } from '../constants'
-import { useGetSalesQuery } from 'state/api'
 import LoadingContainer from 'components/LoadingContainer'
+
+//import fetch data
+import { useGetSalesQuery } from 'state/api'
 
 function Breakdown() {
   const { data, isLoading } = useGetSalesQuery()

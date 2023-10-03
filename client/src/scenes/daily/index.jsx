@@ -1,14 +1,23 @@
 import React, { useState, useMemo } from 'react'
-import { containerStyleScene, containerStyle } from '../constants'
-import { Box, useTheme, CircularProgress, Typography } from '@mui/material'
-import Header from 'components/Header'
-import { useGetSalesQuery } from 'state/api'
-import DatePicker from 'react-datepicker'
-import DailyChart from '../../components/DailyChart'
 
+//import Constant
+import { containerStyleScene, containerStyle } from '../constants'
+
+//import material ui
+import { Box, useTheme } from '@mui/material'
+
+//import libraries foreign
+import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { FormattedMessage } from 'react-intl'
+
+//import own components
+import Header from 'components/Header'
+import DailyChart from '../../components/DailyChart'
 import LoadingContainer from 'components/LoadingContainer'
+
+//import fetch data
+import { useGetSalesQuery } from 'state/api'
 
 const Daily = () => {
   const theme = useTheme()

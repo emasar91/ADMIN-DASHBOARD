@@ -1,12 +1,18 @@
 import React from 'react'
+
+//import libraries foreign
 import ReactDOM from 'react-dom/client'
-import App from './App'
-import { configureStore } from '@reduxjs/toolkit'
-import globalReducer from 'state'
 import { Provider } from 'react-redux'
+import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { api } from 'state/api'
 import IntlProvider from './intl/IntlProvider'
+
+//import own components
+import App from './App'
+
+//import fetch data
+import globalReducer from 'state'
+import { api } from 'state/api'
 
 const store = configureStore({
   reducer: {

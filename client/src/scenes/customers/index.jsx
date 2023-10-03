@@ -1,12 +1,11 @@
 import React from 'react'
-import { useGetCustomersQuery } from 'state/api'
-import Header from 'components/Header'
+//import Constant
 import { containerStyleScene, containerStyle } from '../constants'
+
+//import material ui
 import {
   Box,
   useTheme,
-  CircularProgress,
-  Typography,
   Table,
   TableBody,
   TableCell,
@@ -14,8 +13,16 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material'
+
+//import libraries foreign
 import { FormattedMessage } from 'react-intl'
+
+//import own components
+import Header from 'components/Header'
 import LoadingContainer from 'components/LoadingContainer'
+
+//import fetch data
+import { useGetCustomersQuery } from 'state/api'
 
 const Customers = () => {
   const theme = useTheme()

@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
+//import material ui
 import {
   Box,
   Divider,
@@ -23,11 +25,16 @@ import {
   TrendingUpOutlined,
   PieChartOutlined,
 } from '@mui/icons-material'
-import { useEffect, useState } from 'react'
+
+//import libraries foreign
 import { useLocation, useNavigate } from 'react-router-dom'
-import BoxFlexBetween from './BoxFlexBetween'
-import profileImage from '../assets/profile.jpeg'
 import { FormattedMessage } from 'react-intl'
+
+//import own components
+import BoxFlexBetween from './BoxFlexBetween'
+
+//import assets
+import profileImage from '../assets/profile.jpeg'
 
 const navItems = [
   {
