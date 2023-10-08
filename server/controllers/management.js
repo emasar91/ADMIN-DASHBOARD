@@ -33,7 +33,7 @@ export const getUserPerformance = async (req, res) => {
         return Transaction.findById(id)
       })
     )
-    const filteredSaleTransactions = saleTransactions.filter(
+    const filteredSaleTransactions = saleTransactions?.filter(
       (transaction) => transaction !== null
     )
 
