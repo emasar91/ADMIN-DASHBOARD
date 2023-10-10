@@ -39,11 +39,11 @@ const OverviewChart = ({ isDashboard = false, view }) => {
 
         totalSalesLine.data = [
           ...totalSalesLine.data,
-          { x: month, y: curSales },
+          { x: month.substring(0, 3), y: curSales },
         ]
         totalUnitsLine.data = [
           ...totalUnitsLine.data,
-          { x: month, y: curUnits },
+          { x: month.substring(0, 3), y: curUnits },
         ]
 
         return { sales: curSales, units: curUnits }
@@ -95,7 +95,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
             },
           }}
           colors={{ datum: 'color' }}
-          margin={{ top: 20, right: 70, bottom: 50, left: 70 }}
+          margin={{ top: 20, right: 10, bottom: 50, left: 70 }}
           xScale={{ type: 'point' }}
           yScale={{
             type: 'linear',

@@ -40,7 +40,7 @@ const navItems = [
   {
     text: <FormattedMessage id='sideBar.home' />,
     icon: <HomeOutlined />,
-    navigateTo: 'dashboard',
+    navigateTo: '',
   },
   {
     text: <FormattedMessage id='sideBar.clientFacing' />,
@@ -133,11 +133,11 @@ const SideBar = ({
     <Drawer
       open={isSidebarOpen}
       onClose={handleCloseDrawer}
-      variant='persistent'
       anchor='left'
       sx={{
         '& .MuiDrawer-paper': {
           backgroundColor: theme.palette.sideBar.background,
+          backgroundImage: 'none',
           width: drawerWidth,
           boxSizing: 'border-box',
           borderWidth: isNonMobile ? 0 : '2px',
